@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Text Effect</title>
+</head>
+
+<body>
+    <div id="text" data-text="Hi, I'm Mamadou Developper FullStack JS">
+        Hi, I'm Mamadou Developper FullStack JS
+    </div>
+    <footer>
+        <a href="">GITHUB</a>
+    </footer>
+
+    <!-- Script JS -->
+    <script>
+        let width = window.innerWidth;
+
+        const shadow = (nbrShadow) => {
+            let text = document.getElementById('text');
+            let shadow = '';
+            // Reduce shadow number for mobile
+            if (width <= 767) nbrShadow = nbrShadow / 2;
+
+            for (let i = 0; i < nbrShadow; i++) {
+                shadow +=
+                    (shadow ? ',' : '') + -i * 1 + 'px ' + i * 1 + 'px 0 #d9d9d9';
+            }
+            text.style.textShadow = shadow;
+        };
+        // Responsive Settings
+        const resize = () => {
+            if (width <= 767) shadow(8);
+        };
+
+        shadow(20);
+        window.onresize = resize;
+    </script>
+</body>
+
+</html>
